@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks{% endblock title %}
+
+{% block content %}
+
+<a href="/"><h1>Tasks</h1></a>
+<a href="/archived-tasks"><h5 class="gray menu">Completed</h5></a>
+<br><br>
+
+<p>Type in a task and press enter.</p>
+
+<div class="row">
+
+    <!--enter new task-->
+    <div class="card col-md-5 col-lg-3">
+        <form method="post" action="/">
+            <!-- 'this.setAttribute' function sets value attribute of input to whatever user types in,
+            enabling class .input to hide the plus sign background  -->
+            <input onkeyup="this.setAttribute('value', this.value);" value="" type="text" class="input" name="entry">
+            <button class="enter-button" type="submit"></button>
+        </form>
+    </div>
+
+    {% for task in tasks %}
+    <div class="card col-md-5 col-lg-3">
+        <div class="card-body main">
+            <a class="edit-task" href="/task/{{ task.key.id() }}/edit">
+                <p>{{ task.task }}</p>
+            </a>
+            <div class="links">
+                <a href="/task/{{ task.key.id() }}/delete" data-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a>
+                <a href="/task/{{ task.key.id() }}/archive" data-toggle="tooltip" title="Complete"><i class="fas fa-check"></i></a>
+                </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<br>
+
+{% endblock content %}

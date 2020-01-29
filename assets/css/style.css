@@ -1,0 +1,226 @@
+/* ----------- GENERAL ----------- */
+
+body {
+    background-color: #f9f9f9;
+    color: #6e5a4b;
+    min-width: 302px;
+}
+
+form {
+    height: 100%;
+    width: 100%;
+}
+
+.orange {
+    color: #ef924d;
+}
+
+.gray {
+    color: #d9c8ba;
+}
+
+.gray:hover {
+    color: #f0a56c;
+}
+
+.menu {
+    margin-bottom: 45px;
+    display: inline;
+    padding-left: 20px;
+    padding-top: 5px;
+    margin-left: 20px;
+    border-left: 2px solid #f0a66e;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    color: #ef924d;
+    text-decoration: none;
+}
+
+h1 {
+    color: #ef924d;
+    display: inline;
+}
+
+
+/* undo text top-right: */
+.undo-text button {
+    margin-left: 8px;
+}
+
+.row {
+    max-width: 800px;
+}
+
+
+/* ----------- CARDS ----------- */
+
+.card {
+    max-width: 270px;
+    min-width: 240px;
+    min-height: 90px;
+    margin: 6px;
+    border: 1px solid rgba(239,146,77,0.6);
+}
+
+/* widen cards on small screens */
+@media screen and (max-width: 767px) {
+    .card {
+        max-width: 400px;
+    }
+}
+
+/* card in edit and delete screen: */
+.card.col-10 {
+    min-height: 60px;
+    padding-bottom: 20px;
+}
+
+.card-body {
+    padding: 15px 5px;
+}
+
+/* bigger padding for cards with bottom icons (main & complete page) */
+.card-body.main {
+    padding-bottom: 34px;
+}
+
+.card .enter-button {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    visibility: hidden;
+}
+
+/* show enter button when typing in task */
+.card input:focus + .enter-button {
+    visibility: visible;
+}
+
+/* center-align container on small screens */
+@media screen and (max-width: 767px) {
+    .container .container {
+        max-width: 400px;
+    }
+}
+
+/* ----------- BOTTOM-RIGHT ICONS: ----------- */
+
+.card-body .links {
+    font-size: 16px;
+    position: absolute;
+    bottom: 5px;
+    right: 18px;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.card-body:hover .links {
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+/* ----------- mobile ----------- */
+@media screen and (max-width: 812px) {
+    .card-body .links {
+        opacity: 1;
+    }
+}
+
+/* ----------- iPad Pro ----------- */
+@media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
+    and (-webkit-min-device-pixel-ratio: 1.5) {
+        .card-body .links {
+            opacity: 1;
+        }
+}
+
+.card-body .links a,
+.card-body .links form {
+    margin-left: 10px;
+}
+
+/* ----------- BOTTOM-RIGHT ICONS -- END ----------- */
+
+
+.card-body a p {
+    margin: 0;
+}
+
+.card-body a.edit-task {
+    color: inherit;
+    cursor: default;
+}
+
+.card-body form {
+    display: inline-block;
+    width: auto;
+}
+
+.input {
+    border: none;
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    resize: none;
+    background-image: none;
+}
+
+/* background image (plus sign) appears when input is empty and not in focus: */
+
+.input[value=""] {
+    background: url(/assets/img/bg.svg) no-repeat center center;
+    background-size: 20px;
+}
+
+.input:focus {
+    background-image: none;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #e58b48;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+.textarea-edit {
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    resize: none;
+}
+
+.button-edit-delete {
+    margin: 15px 10px 0 18px;
+    padding: 3px 11px 4px;
+    color: white;
+    background: #ef924d;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+p.delete {
+    margin-left: 18px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* ----------- CARDS - END ---------- */

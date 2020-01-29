@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Delete task{% endblock title %}
+
+{% block content %}
+
+<h1>Delete task</h1>
+<br><br>
+<div class="row">
+    <form method="post" action="/task/{{ task.key.id() }}/delete">
+
+        <div class="card col-10 col-md-8 col-lg-6">
+            <div class="card-body">
+                {{ task.task }}
+            </div>
+        </div>
+
+        <br>
+        <p class="delete">Are you sure you want to delete this task?</p>
+        <button class="button-edit-delete" type="submit">Delete</button>
+        <a href="/">Cancel</a>
+    </form>
+</div>
+
+{% endblock content %}

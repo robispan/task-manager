@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Complete tasks{% endblock title %}
+
+{% block content %}
+
+<a href="/"><h1 class="gray">Tasks</h1></a>
+<a href="/archived-tasks"><h5 class="menu">Completed</h5></a>
+<br><br>
+
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+
+<div class="row">
+
+    {% for task in tasks %}
+    <div class="card completed col-md-5 col-lg-3">
+        <div class="card-body main">
+            <a class="edit-task" href="/task/{{ task.key.id() }}/edit">
+                <p>{{ task.task }}</p>
+            </a>
+            <div class="links">
+                <a href="/task/{{ task.key.id() }}/delete" data-toggle="tooltip" title="Delete">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+                <form class="form" method="post" action="/task/{{ task.key.id() }}/restore">
+                    <button type="submit" data-toggle="tooltip" title="Incomplete">
+                        <i class="fas fa-redo" data-fa-transform="flip-h"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<br>
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Edit task{% endblock title %}
+
+{% block content %}
+
+<h1>Edit task</h1>
+<br><br>
+<div class="row">
+
+    <form method="post" action="/task/{{ task.key.id() }}/edit">
+
+        <div class="card col-10 col-md-8 col-lg-6">
+            <div class="card-body">
+                <textarea type="text" class="textarea-edit" name="edit" rows="1" autofocus>{{ task.task }}</textarea>
+            </div>
+        </div>
+
+        <button class="button-edit-delete" type="submit">Enter</button>
+        <a href="/">Back</a>
+    </form>
+
+</div>
+
+{% endblock content %}
